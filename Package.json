@@ -1,6 +1,7 @@
 { 
 	"name": "kjhtestpage", 
 	"version": "0.0.1", 
+	"main": "node.server.js",
 	"dependencies": 
 	{ 
 		"express": "4.15.3" 
