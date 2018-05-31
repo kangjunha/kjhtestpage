@@ -31,6 +31,8 @@
       g : <div id='g_value' style='display:inline'>7</div>
       n : <div id='n_value' style='display:inline'>101</div>
       <script type="text/javascript">
+        document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
+        document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
         Time();
         function Time()
         {
