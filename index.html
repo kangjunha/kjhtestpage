@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
     <head>
-        <title>Authentication Server</title>
+        <title>정보보호 10조</title>
+        <!--
         <script type="text/javascript" src="libs/three.js"></script>
         <script type="text/javascript" src="libs/stats.js"></script>
         <script type="text/javascript" src="libs/dat.gui.js"></script>
+        -->
         <style>
         body {
        		margin: 0;
@@ -12,6 +15,7 @@
        	}
        	</style>
     </head>
+
     <body>
       <!--
     	<div id="Stats-output"></div>
@@ -19,6 +23,36 @@
 
       <script src="ch01-05.js"></script>
       -->
-      test
+      <현재 시각></br>
+      <div id='divHour' style='display:inline'></div>시
+      <div id='divMin' style='display:inline'></div>분
+      <div id='divSec' style='display:inline'></div>초</br></br>
+      <현재 (<div id='divHour2' style='display:inline'></div>시) 각의 g, n 값></br>
+      g : <div id='g_value' style='display:inline'>7</div>
+      n : <div id='n_value' style='display:inline'>101</div>
+      <script type="text/javascript">
+        Time();
+        function Time()
+        {
+          var dt = new Date();
+          document.getElementById("divHour").innerHTML = dt.getHours().toString();
+          document.getElementById("divHour2").innerHTML = dt.getHours().toString();
+          document.getElementById("divMin").innerHTML = dt.getMinutes().toString();
+          document.getElementById("divSec").innerHTML = dt.getSeconds().toString();
+          window.setTimeout("Time(); MakeChange();", 1000);
+        }
+        function MakeChange()
+        {
+          var dt = new Date();
+          var primeList = [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
+          // document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
+          // document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
+          if(dt.getMinutes() == 0 && dt.getSeconds() == 0)
+          {
+            document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
+            document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
+          }
+        }
+      </script>
     </body>
 </html>
