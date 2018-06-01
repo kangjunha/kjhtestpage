@@ -27,11 +27,37 @@
       <div id='divHour' style='display:inline'></div>시
       <div id='divMin' style='display:inline'></div>분
       <div id='divSec' style='display:inline'></div>초</br></br>
-      <현재 시각(<div id='divHour2' style='display:inline'></div>시)의 g, n 값></br>
+      <현재 (<div id='divHour2' style='display:inline'></div>시)시각의 g, n 값></br>
       g : <div id='g_value' style='display:inline'>7</div>
-      n : <div id='n_value' style='display:inline'>101</div>
+      n : <div id='n_value' style='display:inline'>101</div></br>
+
+      <!--<script type="text/javascript">
+        var primeList = [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
+        document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
+        document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
+      </script>-->
       <script type="text/javascript">
+        var g, n;
         Time();
+        // MakeChange();
+
+        function readTextFile(file)
+        {
+          var rawFile = new XMLHttpRequest();
+          rawFile.open("GET", file, false);
+          rawFile.onreadystatechange = function () {
+            if(rawFile.readyState === 4) {
+              if(rawFile.status === 200 || rawFile.status == 0) {
+                var allText = rawFile.responseText;
+                var gn = allText.split('\n')
+                document.getElementById('g_value').innerHTML = gn[0];
+                document.getElementById('n_value').innerHTML = gn[1];
+              }
+            }
+          };
+          rawFile.send(null);
+        }
+
         function Time()
         {
           var dt = new Date();
@@ -39,20 +65,28 @@
           document.getElementById("divHour2").innerHTML = dt.getHours().toString();
           document.getElementById("divMin").innerHTML = dt.getMinutes().toString();
           document.getElementById("divSec").innerHTML = dt.getSeconds().toString();
-          window.setTimeout("Time(); MakeChange();", 1000);
+          readTextFile("gn_value.txt")
+          window.setTimeout("Time();", 1000);
         }
-        function MakeChange()
+
+        /*function MakeChange()
         {
           var dt = new Date();
           var primeList = [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
           // document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
           // document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
+          if(dt.getSeconds() == 0)
+          {
+            document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 98) + 3);
+            document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
+          }
           if(dt.getMinutes() == 0 && dt.getSeconds() == 0)
           {
             document.getElementById('g_value').innerHTML = Math.floor((Math.random() * 100) + 1);
             document.getElementById('n_value').innerHTML = primeList[Math.floor(Math.random() * primeList.length)];
           }
-        }
+          window.setTimeout("MakeChange();", 1000);
+        }*/
       </script>
     </body>
 </html>
