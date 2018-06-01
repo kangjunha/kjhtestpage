@@ -3,14 +3,6 @@ var fs = require('fs');
 var url = require('url');
 var port = process.env.PORT || 8080;
 var node_jsdom = require('node-jsdom');
-var jsdom = require('jsdom');
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = (new JSDOM('')).window;
-global.document = document;
-
-// var $ = jQuery = require('jquery')(window);
-
 
 // 서버 생성
 http.createServer(function (request, response) {

@@ -41,7 +41,7 @@
         Time();
         // MakeChange();
 
-        function readTextFile(file)
+        /*function readTextFile(file)
         {
           var rawFile = new XMLHttpRequest();
           rawFile.open("GET", file, false);
@@ -56,7 +56,7 @@
             }
           };
           rawFile.send(null);
-        }
+        }*/
 
         function Time()
         {
@@ -65,7 +65,7 @@
           document.getElementById("divHour2").innerHTML = dt.getHours().toString();
           document.getElementById("divMin").innerHTML = dt.getMinutes().toString();
           document.getElementById("divSec").innerHTML = dt.getSeconds().toString();
-          readTextFile("gn_value.txt")
+          //readTextFile("gn_value.txt")
           window.setTimeout("Time();", 1000);
         }
 
