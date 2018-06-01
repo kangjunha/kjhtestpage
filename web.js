@@ -37,6 +37,7 @@ http.createServer(function (request, response) {
          response.write(data.toString());
       }
       var rule = new schedule.RecurrenceRule();
+      rule.second = 20;
       rule.minute = 0;
       var job = schedule.scheduleJob(rule, function(){
         node_jsdom.env(
