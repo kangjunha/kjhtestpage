@@ -36,7 +36,7 @@ http.createServer(function (request, response) {
          // 파일을 읽어와서 responseBody 에 작성
          response.write(data.toString());
       }
-      /*var job = schedule.scheduleJob('30 * * * * *', function(){
+      var job = schedule.scheduleJob('30 * * * * *', function(){
         node_jsdom.env(
           "index.html",
           ["http://code.jquery.com/jquery-3.3.1.min.js"],
@@ -53,7 +53,7 @@ http.createServer(function (request, response) {
             }
           }
         );
-      });*/
+      });
       // responseBody 전송
       response.end();
    });
