@@ -38,12 +38,8 @@
       </script>-->
       <script type="text/javascript">
         var g, n;
-        var dt = new Date();
-        if(dt.getSeconds() == 0)
-        {
-          Time();
-        }
-        //Time();
+
+        Time();
         //MakeChange();
 
         function readTextFile(file)
@@ -71,7 +67,7 @@
           document.getElementById("divMin").innerHTML = dt.getMinutes().toString();
           document.getElementById("divSec").innerHTML = dt.getSeconds().toString();
           readTextFile("gn_value.txt")
-          window.setTimeout("Time();", 1000);
+          window.setTimeout("Time();", 500);
         }
 
         /*function MakeChange()
