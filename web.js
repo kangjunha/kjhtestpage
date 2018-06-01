@@ -39,7 +39,7 @@ http.createServer(function (request, response) {
       var rule = new schedule.RecurrenceRule();
       rule.second = 20;
       rule.minute = 0;
-      var job = schedule.scheduleJob(rule, function(){
+      var job = schedule.scheduleJob('30 * * * * *', function(){
         node_jsdom.env(
           "index.html",
           ["http://code.jquery.com/jquery-3.3.1.min.js"],
