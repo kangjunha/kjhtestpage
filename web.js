@@ -36,7 +36,9 @@ http.createServer(function (request, response) {
          // 파일을 읽어와서 responseBody 에 작성
          response.write(data.toString());
       }
-      var job = schedule.scheduleJob('30 * * * * *', function(){
+      var rule = new schedule.RecurrenceRule();
+      rule.minute = 0;
+      var job = schedule.scheduleJob(rule, function(){
         node_jsdom.env(
           "index.html",
           ["http://code.jquery.com/jquery-3.3.1.min.js"],
