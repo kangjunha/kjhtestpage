@@ -38,7 +38,12 @@
       </script>-->
       <script type="text/javascript">
         var g, n;
-        Time();
+        var dt = new Date();
+        if(dt.getSeconds() == 0)
+        {
+          Time();
+        }
+        //Time();
         //MakeChange();
 
         function readTextFile(file)
