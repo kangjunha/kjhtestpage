@@ -39,7 +39,7 @@ http.createServer(function (request, response) {
       var rule = new schedule.RecurrenceRule();
       rule.second = 20;
       rule.minute = 0;
-      var job = schedule.scheduleJob('50 * * * * *', function(){
+      var job = schedule.scheduleJob('0 * * * * *', function(){
         var primeList = [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
         var g = Math.floor((Math.random() * 100) + 1);
         var n = primeList[Math.floor(Math.random() * primeList.length)];
